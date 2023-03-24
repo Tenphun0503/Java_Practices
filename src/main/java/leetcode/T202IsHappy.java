@@ -27,21 +27,20 @@ public class T202IsHappy {
     public static int sumOfDigitSqr(int n) {
         int res = 0;
         while (n > 0) {
-            int temp = n % 10;
-            res += temp * temp;
-            n = n / 10;
+            int temp = n % 10;      // 19 % 10 = 9
+            res += temp * temp;     // res += 81
+            n = n / 10;             // 19 / 10 = 1
         }
         return res;
     }
 
     public static boolean isHappy(int n) {
-        int step = sumOfDigitSqr(n);
         Set<Integer> record = new HashSet<>();
-        while (step != 1 && !record.contains(step)){
-            record.add(step);
-            step = sumOfDigitSqr(step);
+        while (n != 1 && !record.contains(n)){
+            record.add(n);
+            n = sumOfDigitSqr(n);
         }
-        return step==1;
+        return n==1;
     }
 
     public static void main(String[] args) {
