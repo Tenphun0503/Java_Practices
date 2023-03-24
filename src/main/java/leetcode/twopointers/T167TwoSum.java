@@ -34,7 +34,7 @@ public class T167TwoSum {
     public static void main(String[] args) {
         int[] numbers = {2,3,4};
         int target = 6;
-        System.out.println(Arrays.toString(twoSum(numbers, 6)));
+        System.out.println(Arrays.toString(twoSum(numbers, target)));
     }
 
 }
