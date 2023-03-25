@@ -11,7 +11,7 @@ import java.util.List;
 
 public class T524FindLongestWord {
     public static String findLongestWord(String s, List<String> dictionary) {
-        Collections.sort(dictionary, new Comparator<String>() {
+         Collections.sort(dictionary, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
                 if (s1.length() != s2.length()) {
