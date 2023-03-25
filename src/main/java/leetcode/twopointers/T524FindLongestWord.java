@@ -6,7 +6,6 @@
 package leetcode.twopointers;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class T524FindLongestWord {
@@ -30,7 +29,7 @@ public class T524FindLongestWord {
      * first sort the dictionary and then look for first one result
      */
     public static String findLongestWord(String s, List<String> dictionary) {
-        Collections.sort(dictionary, (s1, s2) -> {
+        dictionary.sort((s1, s2) -> {
             if (s1.length() != s2.length()) {
                 return s2.length() - s1.length(); // Longer strings come first
             } else {
