@@ -1,5 +1,5 @@
 /**
- * QuickSort.java
+ * This class implement quickSort
  */
 package leetcode.sort;
 
@@ -13,12 +13,12 @@ public class QuickSort {
     }
 
     private int partition(int[] A, int p, int q) {
-        int i = p, j = q;
-        int a = A[p]; // the partitioning element
-        while (i < j) {
-            while (A[i] <= a && i < q) i++;
-            while (A[j] > a && j > p) j--;
-            if (i < j) swap(A, i++, j--);
+        int i = p, j = q+1;
+        while (true) {
+            while (A[++i] < A[p] && i<q);
+            while(A[--j] > A[p] && j>p);
+            if (i >= j) break;
+            swap(A, i, j);
         }
         swap(A, p, j);
         return j;
@@ -29,16 +29,15 @@ public class QuickSort {
     }
 
     private void quickSort(int[] A, int p, int q) {
-        int r;
         if (p < q) {
-            r = partition(A, p, q);        // the index where the partitioning element lands
+            int r = partition(A, p, q);    // the index where the partitioning element lands
             quickSort(A, p, r - 1);     // now A[p:r-1] is sorted, and all are <= a
             quickSort(A, r + 1, q);     // now A[r+1:q] is sorted, and all are > a
         }
     }
 
     public static void main(String[] args) {
-        int[] a = {2, 1, 4, 3, 6, 8, 7, 5};
+        int[] a = {3,4,5,2};
         QuickSort q = new QuickSort();
         q.quickSort(a);
         System.out.println(Arrays.toString(a));

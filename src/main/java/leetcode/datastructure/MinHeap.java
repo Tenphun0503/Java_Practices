@@ -1,11 +1,21 @@
 /**
  * This class implement a min-heap class
+ * Methods: insert, delete-min, buildAsList
  */
 package leetcode.datastructure;
 
 import java.util.Collections;
 
 public class MinHeap extends BinaryTree {
+    public MinHeap() {
+        this.root = null;
+    }
+
+    public MinHeap(TreeNode root) {
+        this.root = root;
+        this.treeList.add(root.val);
+    }
+
     public void insert(int val) {
         treeList.add(val);
         int index = treeList.size() - 1;
@@ -27,13 +37,13 @@ public class MinHeap extends BinaryTree {
     public int deleteMin() {
         int res;
         if (treeList.size() == 1){
-            return treeList.remove(0);
+            res = treeList.remove(0);
         }else {
             Collections.swap(treeList, treeList.size() - 1, 0);
             res = treeList.remove(treeList.size() - 1);
             heapifyDown(0);
-            return res;
         }
+        return res;
     }
 
     private void heapifyDown(int index) {

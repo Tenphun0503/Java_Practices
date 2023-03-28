@@ -16,6 +16,11 @@ public class BinaryTree {
         this.root = null;
     }
 
+    public BinaryTree(TreeNode root) {
+        this.root = root;
+        this.treeList.add(root.val);
+    }
+
     public List<Integer> inOrderTraversal() {
         List<Integer> res = new ArrayList<>();
         inOrderTraversal(root, res);
