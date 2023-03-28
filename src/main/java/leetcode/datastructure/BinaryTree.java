@@ -1,6 +1,7 @@
 /**
  * This class implement a Binary Tree
  * Methods: in-order, pre-order, post-order, level-order traversal, buildAsList, toString
+ * TODO: special case check
  */
 package leetcode.datastructure;
 
@@ -82,8 +83,8 @@ public class BinaryTree {
             }
         }
 
-        while (result.get(result.size()-1) == null){
-            result.remove(result.size()-1);
+        while (result.get(result.size() - 1) == null) {
+            result.remove(result.size() - 1);
         }
 
         this.treeList = result;
@@ -97,14 +98,15 @@ public class BinaryTree {
     }
 
     private TreeNode buildAsList(int rootIndex, Integer[] list) {
-        TreeNode parent = new TreeNode();
-        if (list[rootIndex] != null) parent.val = list[rootIndex];
         int length = list.length;
+        if (length == 0) return null;
+        TreeNode current = new TreeNode();
+        if (list[rootIndex] != null) current.val = list[rootIndex];
         if (rootIndex * 2 + 1 < length && list[rootIndex * 2 + 1] != null)
-            parent.left = buildAsList(rootIndex * 2 + 1, list);
+            current.left = buildAsList(rootIndex * 2 + 1, list);
         if (rootIndex * 2 + 2 < length && list[rootIndex * 2 + 2] != null)
-            parent.right = buildAsList(rootIndex * 2 + 2, list);
-        return parent;
+            current.right = buildAsList(rootIndex * 2 + 2, list);
+        return current;
     }
 
     @Override

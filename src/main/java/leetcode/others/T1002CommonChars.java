@@ -1,23 +1,17 @@
 /**
  * 1002. Find Common Characters
- * Given a string array words,
- * return an array of all characters that show up in all strings within the words (including duplicates).
- * You may return the answer in any order.
- *
- * Example 1:
- * Input: words = ["bella","label","roller"]
- * Output: ["e","l","l"]
+ * @see <a href="https://leetcode.com/problems/find-common-characters/"></a>
  */
-package leetcode;
+package leetcode.others;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class T1002CommonChars {
     public static void printHash(int[] hash){
-        String line = "";
+        StringBuilder line = new StringBuilder();
         for (int j : hash) {
-            line += j + " ";
+            line.append(j).append(" ");
         }
         System.out.println(line);
     }
