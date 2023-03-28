@@ -3,9 +3,7 @@
  */
 package leetcode.datastructure;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class MinHeap extends BinaryTree {
     public void insert(int val) {
@@ -22,7 +20,7 @@ public class MinHeap extends BinaryTree {
         for (int val: list){
             insert(val);
         }
-        super.buildAsList(treeList.toArray(new Integer[treeList.size()]));
+        super.buildAsList(treeList.toArray(new Integer[0]));
     }
 
 
