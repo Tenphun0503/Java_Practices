@@ -9,6 +9,7 @@ public class LinkedList {
     private int length;
 
     public LinkedList() {
+        this.head = null;
     }
 
     public LinkedList(int val) {
