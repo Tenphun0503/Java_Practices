@@ -9,7 +9,7 @@ import java.util.LinkedList;
 
 public class BinaryTree {
     public TreeNode root;
-    public List<Integer> treeList;
+    public List<Integer> treeList = new ArrayList<>();
 
     public BinaryTree() {
         this.root = null;
@@ -91,7 +91,8 @@ public class BinaryTree {
     }
 
     public void buildAsList(Integer[] list) {
-        this.treeList = new ArrayList<>(List.of(list));
+        this.treeList.clear();
+        this.treeList.addAll(Arrays.asList(list));
         this.root = buildAsList(0, list);
     }
 
