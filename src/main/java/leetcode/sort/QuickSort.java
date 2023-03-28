@@ -6,13 +6,13 @@ package leetcode.sort;
 import java.util.Arrays;
 
 public class QuickSort {
-    public static void swap(int[] A, int i, int j) {
+    private void swap(int[] A, int i, int j) {
         int temp = A[i];
         A[i] = A[j];
         A[j] = temp;
     }
 
-    public static int partition(int[] A, int p, int q) {
+    private int partition(int[] A, int p, int q) {
         int i = p, j = q;
         int a = A[p]; // the partitioning element
         while (i < j) {
@@ -24,7 +24,11 @@ public class QuickSort {
         return j;
     }
 
-    public static void quickSort(int[] A, int p, int q) {
+    public void quickSort(int[] A){
+        quickSort(A, 0, A.length - 1);
+    }
+
+    private void quickSort(int[] A, int p, int q) {
         int r;
         if (p < q) {
             r = partition(A, p, q);        // the index where the partitioning element lands
@@ -35,7 +39,8 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] a = {2, 1, 4, 3, 6, 8, 7, 5};
-        quickSort(a, 0, a.length - 1);
+        QuickSort q = new QuickSort();
+        q.quickSort(a);
         System.out.println(Arrays.toString(a));
     }
 }
