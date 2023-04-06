@@ -31,7 +31,7 @@ public class T59GenerateMatrix {
      *      1. for M[0][0:n-1]      we put  (0:n-1)+last
      *      2. for M[0:n-1][n-1]    we put  (n-1:2n-2)+last
      *      3. for M[n-1][n-1:0]    we put  (2n-2:3n-3)+last
-     *      4. for M[n-1:0][1]      we put  (3n-3:4n-5)+last
+     *      4. for M[n-1:1][0]      we put  (3n-3:4n-5)+last
      * Consider the start of the matrix, e.g. 2ed layer moves right by one and down by one. which becomes [start][start]
      * Last can be considered as last element of the last layer
      *
@@ -60,6 +60,7 @@ public class T59GenerateMatrix {
         int start = 0, last = 1;
         while (n > 0) {
             last = generateMatrix(n, start, last);
+            System.out.println(last);
             start += 1;
             n-=2;
         }
