@@ -3,38 +3,35 @@
  */
 package leetcode.datastructure;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 public class Stack<K> {
-    private K[] stack;
+    private ArrayList<K> stack;
     private int top;
 
-    public Stack(int size) {
-        stack = (K[]) new Object[size];
+    public Stack() {
+        stack = new ArrayList<>();
         top = -1;
     }
 
     public void push(K item) {
-        if (top == stack.length - 1) {
-            throw new StackOverflowError();
-        }
         top++;
-        stack[top] = item;
+        stack.add(item);
     }
 
     public K pop(){
-        K res;
         if (isEmpty()){
-            throw new NoSuchElementException();
+            throw new IllegalStateException("Stack is empty");
         }
-        return stack[top--];
+        return stack.remove(top--);
     }
 
     public K peek(){
         if (isEmpty()){
-            throw new NoSuchElementException();
+            throw new IllegalStateException("Stack is empty");
         }
-        return stack[top];
+        return stack.get(top);
     }
 
     public boolean isEmpty(){
@@ -49,13 +46,13 @@ public class Stack<K> {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (int i = top; i >= 0; i--) {
-            sb.append(stack[i].toString()).append('\t');
+            sb.append(stack.get(i).toString()).append('\t');
         }
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack<>(10);
+        Stack<Integer> stack = new Stack<>();
         stack.push(2);
         stack.push(3);
         stack.push(4);

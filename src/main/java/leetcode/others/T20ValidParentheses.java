@@ -23,7 +23,7 @@ public class T20ValidParentheses {
         map.put('{','}');
         map.put('[',']');
         map.put('(',')');
-        Stack<Character> stack = new Stack<>(100);
+        Stack<Character> stack = new Stack<>();
         for(char c: set){
             if(isLeft(c)) stack.push(c);
             else{
