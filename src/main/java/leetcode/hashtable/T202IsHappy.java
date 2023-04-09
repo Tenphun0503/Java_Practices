@@ -18,7 +18,7 @@
  * 6^2 + 8^2 = 100
  * 1^2 + 0^2 + 0^2 = 1
  */
-package leetcode.others;
+package leetcode.hashtable;
 
 import java.util.HashSet;
 import java.util.Set;
